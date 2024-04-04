@@ -1,3 +1,4 @@
+
 ## Setup
 since the lmdeploy is not for jetson, it need to install jetson device wheel and CUDA version, CMAKE version and lmdeploy version.
 
@@ -19,6 +20,7 @@ conda activate lmdeploy
 Requirement
 > - CUDA 11.8
 > - Pytorch 2.1.0
+> - JetPack >=5.1
 
 
 #### Update to CUDA 11.8
@@ -141,7 +143,7 @@ cd ~/lmdeploy
 pip install -e .[serve]
 ```
 
-## Converting Model
+## Quantization Model
 
 ### AWQ Quantization
 ```bash 
@@ -188,10 +190,13 @@ lmdeploy convert  model-type \
 
 
 ### Turbomind
+
+#### base-line
 |Device | llama2-chat-7b | mistral-instruction-7b | 
 |---| ---| ---|
 |Jetson Orin Nano| (Memory: 5.1G) 13.36 tokens/s |(Memory: 4.9G) 12.61 tokens/s |
 
+#### Capture of text output
 |Question | llama2-chat-7b | mistral-instruction-7b | 
 | --- | --- | --- |
 |Hi, how are you?| ![](https://raw.githubusercontent.com/Lemonkaikai/pics/main/202404042056737.png) | ![](https://raw.githubusercontent.com/Lemonkaikai/pics/main/202404042011416.png)|
